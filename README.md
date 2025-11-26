@@ -16,12 +16,13 @@ Travaux pratiques réalisé en 3ème année de BUT Métiers du Multimédia et de
 	│
 	├── nodes_modules/			# Installed packages
 	├── public/
+	│	├── assets/        		# Reusable components
+	│   │	└── images/        	# Contains every used images
 	│   └── data/				# JSON Files
 	│
 	└── src/					# React/TypeScript source    
-	    ├── assets/        		# Reusable components
-	    ├── images/        		# Contains every used images
-	    └── components/			# TypeScript components
+	    ├── components/			# TypeScript components
+		└── pages/				# Web pages
 	    
 ## Utilisation
 Pour démarrer le serveur local, utilisez le script suivant :
