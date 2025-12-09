@@ -24,16 +24,24 @@ function CaliforniaSaumonAvocat() {
       const data = await res.json();
       let filteredData: Menu[] = [];
       for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < data[i].aliments.length; j++) {
-          if (data[i].aliments[j].nom == "California Saumon Avocat") {
-            filteredData.push(data[i]);
-        }
+        if (CheckCSA(data[i].aliments)) {
+          filteredData.push(data[i]);
         }
       }
       setData(filteredData);
     };
     fetchData();
   }, []);
+
+  // Fonction booléenne qui renvoie True si la liste des aliments ne contient pas "California Saumon Avocat"
+  const CheckCSA = (aliments: Aliment[]): boolean => {
+    for (let i = 0; i < aliments.length; i++) {
+      if (aliments[i].nom === "California Saumon Avocat") {
+        return false;
+      }
+    }
+    return true;
+  };
 
   return (
     <div className="container mt-5">
