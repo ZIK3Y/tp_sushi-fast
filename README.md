@@ -2,6 +2,13 @@
 ## Contexte
 Travaux pratiques réalisé en 3ème année de BUT Métiers du Multimédia et de l'Internet avec les matières Dev-Front et Dev-Back.
 
+## Technologies utilisées
+- React 19.2.0
+- TypeScript 5.7.2
+- Vite 7.2.4
+- Bootstrap 5.3.8
+- React Router DOM 7.9.6
+- Vite 7.2.4
 
 ## Installation
 	# Cloner le projet et y accéder
@@ -22,6 +29,7 @@ Travaux pratiques réalisé en 3ème année de BUT Métiers du Multimédia et de
 	│
 	└── src/					# React/TypeScript source    
 	    ├── components/			# TypeScript components
+		├── types/				# Typed files
 		└── pages/				# Web pages
 	    
 ## Utilisation
