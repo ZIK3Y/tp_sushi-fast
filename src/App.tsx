@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import Saveur from "./pages/Saveur";
 import AvocatCoriandre from "./pages/AvocatCoriandre";
 import CaliforniaSaumonAvocat from "./pages/CaliforniaSaumonAvocat";
-import LessThanThirteen from "./pages/LessThanThirteen";
+import MoinsDeTreize from "./pages/MoinsDeTreize";
+import PlusMoinsCher from "./pages/PlusMoinsCher";
 
 function App() {
 
@@ -19,7 +20,8 @@ function App() {
           <Route path="/saveur" element={<Saveur />} />
           <Route path="/avocat_coriandre" element={<AvocatCoriandre />} />
           <Route path="/california_saumon_avocat" element={<CaliforniaSaumonAvocat />} />
-          <Route path="/less_than_thirteen" element={<LessThanThirteen />} />
+          <Route path="/moins_de_treize" element={<MoinsDeTreize />} />
+          <Route path="/plus_moins_cher" element={<PlusMoinsCher />} />
         </Routes>
         <Footer />
       </Router>

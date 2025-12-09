@@ -1,21 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Aliment, Menu } from "../types/types"
 
-type Aliment = {
-  nom: string;
-  quantite: number;
-}
-
-type Menu = {
-  id: number;
-  nom: string;
-  pieces: number;
-  prix: number;
-  image: string;
-  aliments: Aliment[];
-  saveurs: string[];
-}
-
-function LessThanThirteen() {
+function MoinsDeTreize() {
   const [data, setData] = useState<Menu[]>([]);
 
   useEffect(() => {
@@ -59,4 +45,4 @@ function LessThanThirteen() {
   );
 }
 
-export default LessThanThirteen;
+export default MoinsDeTreize;
