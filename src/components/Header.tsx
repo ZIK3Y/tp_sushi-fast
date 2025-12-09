@@ -21,6 +21,12 @@ function Header() {
                             <li className="nav-item">
                                 <Link to="/avocat_coriandre" className="nav-link text-white">Avocat et Coriandre</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/california_saumon_avocat" className="nav-link text-white">California Saumon Avocat</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/less_than_thirteen" className="nav-link text-white">Moins de 13 pièces</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
