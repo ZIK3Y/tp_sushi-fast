@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Saveur from "./pages/Saveur";
+import AvocatCoriandre from "./pages/AvocatCoriandre";
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Saveur" element={<Saveur />} />
+          <Route path="/saveur" element={<Saveur />} />
+          <Route path="/avocat_coriandre" element={<AvocatCoriandre />} />
         </Routes>
         <Footer />
       </Router>

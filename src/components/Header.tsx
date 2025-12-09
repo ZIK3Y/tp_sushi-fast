@@ -16,7 +16,10 @@ function Header() {
                                 <Link to="/" className="nav-link text-white">Accueil</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Saveur" className="nav-link text-white">Nos saveurs</Link>
+                                <Link to="/saveur" className="nav-link text-white">Nos saveurs</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/avocat_coriandre" className="nav-link text-white">Avocat et Coriandre</Link>
                             </li>
                         </ul>
                     </div>
