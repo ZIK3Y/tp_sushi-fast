@@ -24,8 +24,10 @@ function CaliforniaSaumonAvocat() {
       const data = await res.json();
       let filteredData: Menu[] = [];
       for (let i = 0; i < data.length; i++) {
-        if (data[i].aliments.name == "California Saumon Avocat") {
-          filteredData.push(data[i]);
+        for (let j = 0; j < data[i].aliments.length; j++) {
+          if (data[i].aliments[j].nom == "California Saumon Avocat") {
+            filteredData.push(data[i]);
+        }
         }
       }
       setData(filteredData);
