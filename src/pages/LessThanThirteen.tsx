@@ -1,19 +1,6 @@
-import { useState, useEffect } from 'react';
-
-type Aliment = {
-  nom: string;
-  quantite: number;
-}
-
-type Menu = {
-  id: number;
-  nom: string;
-  pieces: number;
-  prix: number;
-  image: string;
-  aliments: Aliment[];
-  saveurs: string[];
-}
+import { useState, useEffect } from "react";
+import { Menu } from "../types/types";
+import LargeCard from "../components/LargeCard";
 
 function LessThanThirteen() {
   const [data, setData] = useState<Menu[]>([]);
@@ -22,36 +9,31 @@ function LessThanThirteen() {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json");
       const data = await res.json();
-      setData(data);
+      let filtredData: Menu[] = [];
+      for (let i = 0; i < data.length; i++) {
+        if (CheckLessThanThirteen(data[i])) {
+          filtredData.push(data[i]);
+        }
+      }
+      setData(filtredData);
     };
     fetchData();
   }, []);
 
+  // Vérifie si le menu contient moins de 13 pieces
+  const CheckLessThanThirteen = (menu: Menu): boolean => {
+    return menu.pieces < 13;
+  };
+
   return (
     <div className="container mt-5">
+      <h2 className="mb-4">
+        Prix total : {data.reduce((total, menu) => total + menu.prix, 0)} €
+      </h2>
       <div className="row g-4 justify-content-center">
-        {data.map(menu => (
+        {data.map((menu) => (
           <div className="col-6 mb-3 d-flex" key={menu.id}>
-            <div className="card p-3 shadow-sm flex-fill">
-              <div className="row g-2 align-items-center h-100">
-                <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
-                  <h3 className="fw-bold">{menu.nom}</h3>
-                  <ul className="list-unstyled mb-0">
-                    {menu.saveurs.map(saveur => (
-                      <li className="fs-5" key={saveur}>{saveur}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="col-md-6 d-flex justify-content-center align-items-center">
-                  <img
-                    src={`/assets/images/${menu.image}.jpg`}
-                    alt={menu.nom}
-                    className="img-fluid rounded"
-                    style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-            </div>
+            <LargeCard {...menu} />
           </div>
         ))}
       </div>
