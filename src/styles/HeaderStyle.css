@@ -1,0 +1,12 @@
+.red-bg {
+    background-color: #BD0029;
+}
+ 
+.navbar-list {
+    margin-right: 11vw;
+}
+
+.dropdown-item:active {
+    color: white !important;
+    background-color: #BD0029 !important;
+}

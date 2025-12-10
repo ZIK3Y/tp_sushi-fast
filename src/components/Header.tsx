@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../styles/HeaderStyle.css';
 
 /*
  * Composant Header
@@ -20,12 +21,15 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-danger">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
 
                     {/* Logo et lien vers l'accueil */}
-                    <Link to="/" className="navbar-brand text-white fs-3">
-                        SushiFast
+                    <Link to="/" className="navbar-brand text-white ms-4 d-flex align-items-center">
+                        <img src="/assets/images/logo-sushifast.png" width={75} alt="Logo" />
+                        <p className='fs-4 text-black mb-0 ms-2'>
+                            <span className='fw-bold'>Sushi</span>Fast
+                        </p>
                     </Link>
 
                     {/* Bouton responsive pour les petits écrans */}
@@ -43,7 +47,8 @@ function Header() {
 
                     {/* Menu de navigation */}
                     <div className="collapse navbar-collapse" id="navbarScroll">
-                        <ul className="navbar-nav navbar-nav-scroll">
+
+                        <ul className="navbar-nav navbar-nav-scroll red-bg navbar-list p-3 rounded-pill ms-auto">
 
                             {/* Lien vers la page d'accueil */}
                             <li className="nav-item">
@@ -59,32 +64,43 @@ function Header() {
                                 </Link>
                             </li>
 
-                            {/* Lien vers la page "Avocat et Coriandre" */}
-                            <li className="nav-item">
-                                <Link to="/avocat_coriandre" className="nav-link text-white">
-                                    Avocat et Coriandre
-                                </Link>
-                            </li>
+                            {/* Dropdown "Plus de choix" */}
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle text-white"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Plus de choix
+                                </a>
 
-                            {/* Lien vers la page "California Saumon Avocat" */}
-                            <li className="nav-item">
-                                <Link to="/california_saumon_avocat" className="nav-link text-white">
-                                    California Saumon Avocat
-                                </Link>
-                            </li>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <Link to="/avocat_coriandre" className="dropdown-item text-black">
+                                            Avocat et Coriandre
+                                        </Link>
+                                    </li>
 
-                            {/* Lien vers la page "Moins de 13 pièces" */}
-                            <li className="nav-item">
-                                <Link to="/moins_de_treize" className="nav-link text-white">
-                                    Moins de 13 pièces
-                                </Link>
-                            </li>
+                                    <li>
+                                        <Link to="/california_saumon_avocat" className="dropdown-item text-black">
+                                            California Saumon Avocat
+                                        </Link>
+                                    </li>
 
-                            {/* Lien vers la page "Plus cher et moins cher" */}
-                            <li className="nav-item">
-                                <Link to="/plus_moins_cher" className="nav-link text-white">
-                                    Plus cher et moins cher
-                                </Link>
+                                    <li>
+                                        <Link to="/moins_de_treize" className="dropdown-item text-black">
+                                            Moins de 13 pièces
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to="/plus_moins_cher" className="dropdown-item text-black">
+                                            Plus cher et moins cher
+                                        </Link>
+                                    </li>
+                                </ul>
                             </li>
 
                         </ul>
