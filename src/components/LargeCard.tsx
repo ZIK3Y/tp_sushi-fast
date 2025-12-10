@@ -1,4 +1,5 @@
 import { Menu, Aliment } from "../types/types";
+import "../styles/LargeCardStyle.css";
 
 /*
  * Composant LargeCard
@@ -20,43 +21,64 @@ import { Menu, Aliment } from "../types/types";
  * - Colonne droite : image du menu
  */
 function LargeCard(props: Menu) {
-    return (
-        <>
-            <div className="card p-3 shadow-sm flex-fill">
+  return (
+    <>
+      <div className="bg-white p-3 rounded-4 h-100 flex-fill">
+        {/* Grille Bootstrap pour disposition responsive */}
+        <div className="row g-2 h-100">
+          {/* Colonne gauche : nom et saveurs */}
+          <div className="col-md-6 text-center text-md-start d-flex flex-column">
+            <h4 className="fw-bold">{props.nom}</h4>
+            <p className="fs-6 text-secondary fst-italic">
+              {props.saveurs
+                .map((saveur, index) => {
+                  // Première lettre en majuscule seulement pour la première saveur
+                  const formattedSaveur =
+                    index === 0
+                      ? saveur.charAt(0).toUpperCase() + saveur.slice(1)
+                      : saveur;
 
-                {/* Grille Bootstrap pour disposition responsive */}
-                <div className="row g-2 align-items-center h-100">
-
-                    {/* Colonne gauche : nom et saveurs */}
-                    <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
-                        <h3 className="fw-bold">{props.nom}</h3>
-                        <ul className="list-unstyled mb-0">
-                            {props.saveurs.map((saveur) => (
-                                <li className="fs-5" key={saveur}>
-                                    {saveur}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Colonne droite : image */}
-                    <div className="col-md-6 d-flex justify-content-center align-items-center">
-                        <img
-                            src={`/assets/images/${props.image}.jpg`}
-                            alt={props.nom}
-                            className="img-fluid rounded"
-                            style={{
-                                maxWidth: "100%",
-                                maxHeight: "200px",
-                                objectFit: "cover",
-                            }}
-                        />
-                    </div>
-
-                </div>
+                  // Gestion des séparateurs
+                  if (index === props.saveurs.length - 1) {
+                    // Dernière saveur : pas de séparateur après
+                    return formattedSaveur;
+                  } else if (index === props.saveurs.length - 2) {
+                    // Avant-dernière saveur : ajouter " et "
+                    return formattedSaveur + " et ";
+                  } else {
+                    // Autres saveurs : ajouter ", "
+                    return formattedSaveur + ", ";
+                  }
+                })
+                .join("")}
+            </p>
+            <p className="fs-5 mt-4 mb-1">{props.pieces} pièces</p>
+            <div className="col-md-6 text-center text-md-start d-flex flex-row align-items-center gap-3">
+              {/* Bouton d'action */}
+              <a href="#" className="btn btn-red">
+                Commander
+              </a>
+              <p className="card-text fw-bold fs-5">{props.prix}€</p>
             </div>
-        </>
-    );
+          </div>
+
+          {/* Colonne droite : image */}
+          <div className="col-md-6 d-flex justify-content-center align-items-center">
+            <img
+              src={`/assets/images/${props.image}.jpg`}
+              alt={props.nom}
+              className="img-fluid rounded"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "200px",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default LargeCard;
