@@ -1,8 +1,8 @@
 .red-bg {
-    background-color: #BD0029;
+    background-color: #B23A48;
 }
 
 .dropdown-item:active {
     color: white !important;
-    background-color: #BD0029 !important;
+    background-color: #B23A48 !important;
 }

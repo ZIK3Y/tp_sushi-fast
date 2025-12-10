@@ -1,4 +1,5 @@
 import { Menu } from "../types/types";
+import '../styles/SmallCardStyle.css';
 
 /*
  * Composant SmallCard
@@ -23,36 +24,30 @@ import { Menu } from "../types/types";
 function SmallCard(props: Menu) {
     return (
         <>
-            <div className="card">
-
-                {/* Image du menu */}
-                <img
-                    src={`/assets/images/${props.image}.jpg`}
-                    className="card-img-top my-2"
-                    alt="Image du menu"
-                />
-
-                {/* Corps de la carte */}
-                <div className="card-body">
-
+            <div className="bg-white p-3 rounded-4 h-100">
+                <div className="row g-2 align-items-center h-100">
                     {/* Nom du menu */}
-                    <h5 className="card-title fs-3 fw-bold">{props.nom}</h5>
-
-                    {/* Informations sur le menu : nombre de pièces et prix */}
-                    <div className="row mb-3">
-                        <div className="col-6 fs-5">
-                            <p className="card-text">{props.pieces} pièces</p>
-                        </div>
-                        <div className="col-6 fs-4">
-                            <p className="card-text fw-bold text-end">{props.prix}€</p>
-                        </div>
+                    <h5 className="card-title fs-4 fw-bold">{props.nom}<span className="fw-normal"> - {props.pieces} pièces</span></h5>
+                    <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
+                        {/* Informations sur le menu : nombre de pièces et prix */}
+                        <p className="card-text fw-bold fs-5">{props.prix}€</p>
+                        {/* Bouton d'action */}
+                        <a href="#" className="btn btn-red">
+                            Commander
+                        </a>
                     </div>
-
-                    {/* Bouton d'action */}
-                    <a href="#" className="btn btn-danger">
-                        Commander
-                    </a>
-
+                    <div className="col-md-6 d-flex justify-content-center align-items-center">
+                        <img
+                            src={`/assets/images/${props.image}.jpg`}
+                            alt={props.nom}
+                            className="img-fluid rounded"
+                            style={{
+                                maxWidth: "100%",
+                                maxHeight: "200px",
+                                objectFit: "cover",
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
         </>

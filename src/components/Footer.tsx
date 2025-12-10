@@ -23,12 +23,9 @@ function Footer() {
             {/* Section Liens */}
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-md-start">
               <h5 className="text-uppercase mb-4 font-weight-bold">Liens</h5>
-              <p><Link to="/" className="text-white text-decoration-none">Accueil</Link></p>
-              <p><Link to="/saveur" className="text-white text-decoration-none">Nos saveurs</Link></p>
-              <p><Link to="/avocat_coriandre" className="text-white text-decoration-none">Avocat et Coriandre</Link></p>
-              <p><Link to="/california_saumon_avocat" className="text-white text-decoration-none">California Saumon Avocat</Link></p>
-              <p><Link to="/moins_de_treize" className="text-white text-decoration-none">Moins de 13 pièces</Link></p>
-              <p><Link to="/plus_moins_cher" className="text-white text-decoration-none">Plus cher et moins cher</Link></p>
+              <p><Link to="/" className="text-white text-decoration-none">CGV - CGU</Link></p>
+              <p><Link to="/" className="text-white text-decoration-none">Politique de confidentialité</Link></p>
+              <p><Link to="/" className="text-white text-decoration-none">Mentions Légales</Link></p>
             </div>
 
             {/* Section Réseaux sociaux */}
