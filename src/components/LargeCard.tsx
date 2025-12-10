@@ -27,38 +27,42 @@ function LargeCard(props: Menu) {
         {/* Grille Bootstrap pour disposition responsive */}
         <div className="row g-2 h-100">
           {/* Colonne gauche : nom et saveurs */}
-          <div className="col-md-6 text-center text-md-start d-flex flex-column">
-            <h4 className="fw-bold">{props.nom}</h4>
-            <p className="fs-6 text-secondary fst-italic">
-              {props.saveurs
-                .map((saveur, index) => {
-                  // Première lettre en majuscule seulement pour la première saveur
-                  const formattedSaveur =
-                    index === 0
-                      ? saveur.charAt(0).toUpperCase() + saveur.slice(1)
-                      : saveur;
+          <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-between">
+            <div>
+              <h4 className="fw-bold">{props.nom}</h4>
+              <p className="fs-6 text-secondary fst-italic">
+                {props.saveurs
+                  .map((saveur, index) => {
+                    // Première lettre en majuscule seulement pour la première saveur
+                    const formattedSaveur =
+                      index === 0
+                        ? saveur.charAt(0).toUpperCase() + saveur.slice(1)
+                        : saveur;
 
-                  // Gestion des séparateurs
-                  if (index === props.saveurs.length - 1) {
-                    // Dernière saveur : pas de séparateur après
-                    return formattedSaveur;
-                  } else if (index === props.saveurs.length - 2) {
-                    // Avant-dernière saveur : ajouter " et "
-                    return formattedSaveur + " et ";
-                  } else {
-                    // Autres saveurs : ajouter ", "
-                    return formattedSaveur + ", ";
-                  }
-                })
-                .join("")}
-            </p>
-            <p className="fs-5 mt-4 mb-1">{props.pieces} pièces</p>
-            <div className="col-md-6 text-center text-md-start d-flex flex-row align-items-center gap-3">
-              {/* Bouton d'action */}
-              <a href="#" className="btn btn-red">
-                Commander
-              </a>
-              <p className="card-text fw-bold fs-5">{props.prix}€</p>
+                    // Gestion des séparateurs
+                    if (index === props.saveurs.length - 1) {
+                      // Dernière saveur : pas de séparateur après
+                      return formattedSaveur;
+                    } else if (index === props.saveurs.length - 2) {
+                      // Avant-dernière saveur : ajouter " et "
+                      return formattedSaveur + " et ";
+                    } else {
+                      // Autres saveurs : ajouter ", "
+                      return formattedSaveur + ", ";
+                    }
+                  })
+                  .join("")}
+              </p>
+            </div>
+            <div className="text-center text-md-start">
+              <p className="fs-5 mb-2">{props.pieces} pièces</p>
+              <div className="d-flex flex-row align-items-center gap-3">
+                {/* Bouton d'action */}
+                <a href="#" className="btn btn-red">
+                  Commander
+                </a>
+                <p className="card-text fw-bold fs-5 mb-0">{props.prix}€</p>
+              </div>
             </div>
           </div>
 
