@@ -23,6 +23,7 @@ function Footer() {
             {/* Section Liens */}
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-md-start">
               <h5 className="text-uppercase mb-4 font-weight-bold">Liens</h5>
+              <p><Link to="/" className="text-white text-decoration-none">Liste des alergènes</Link></p>
               <p><Link to="/" className="text-white text-decoration-none">CGV - CGU</Link></p>
               <p><Link to="/" className="text-white text-decoration-none">Politique de confidentialité</Link></p>
               <p><Link to="/" className="text-white text-decoration-none">Mentions Légales</Link></p>
