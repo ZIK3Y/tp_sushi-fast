@@ -43,6 +43,7 @@ function Home() {
   return (
     <>
       <div className="container">
+        <h1 className="text-center fst-italic">Nos menus</h1>
         <div className="row mt-5">
           {data.map((menu) => (
             <div className="col-4 mb-5" key={menu.id}>
