@@ -6,3 +6,15 @@
     color: white !important;
     background-color: #B23A48 !important;
 }
+
+/* Navbar responsive */
+.navbar-menu {
+    border-radius: 0;
+}
+
+/* Sur les écrans moyens et plus grands (desktop) */
+@media (min-width: 992px) {
+    .navbar-menu {
+        border-radius: 50rem !important; /* rounded-pill */
+    }
+}

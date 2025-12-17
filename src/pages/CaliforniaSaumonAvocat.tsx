@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import LargeCard from "../components/LargeCard";
-import { Menu, Aliment } from '../types/types';
+import SmallCard from "../components/SmallCard";
+import { Menu, Aliment } from "../types/types";
 
 /*
  * Page CaliforniaSaumonAvocat
@@ -11,7 +12,6 @@ import { Menu, Aliment } from '../types/types';
  * à l'aide d'une fonction booléenne dédiée.
  */
 function CaliforniaSaumonAvocat() {
-
   /*
    * useState
    * --------
@@ -31,7 +31,7 @@ function CaliforniaSaumonAvocat() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Lecture du JSON
-      const data: Menu[] = await res.json();       // Conversion
+      const data: Menu[] = await res.json(); // Conversion
 
       let filteredData: Menu[] = [];
 
@@ -81,8 +81,15 @@ function CaliforniaSaumonAvocat() {
     <div className="container mt-5">
       <div className="row g-4 justify-content-center">
         {data.map((menu) => (
-          <div className="col-6 mb-3 d-flex" key={menu.id}>
-            <LargeCard {...menu} />
+          <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
+            {/* SmallCard sur mobile uniquement */}
+            <div className="d-md-none w-100">
+              <SmallCard {...menu} />
+            </div>
+            {/* LargeCard sur desktop uniquement */}
+            <div className="d-none d-md-block w-100">
+              <LargeCard {...menu} />
+            </div>
           </div>
         ))}
       </div>

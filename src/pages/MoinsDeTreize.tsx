@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Aliment, Menu } from "../types/types"
-import LargeCard from '../components/LargeCard';
+import { useState, useEffect } from "react";
+import { Aliment, Menu } from "../types/types";
+import LargeCard from "../components/LargeCard";
+import SmallCard from "../components/SmallCard";
 
 /*
  * Page MoinsDeTreize
@@ -12,7 +13,6 @@ import LargeCard from '../components/LargeCard';
  * puis filtrées avant d’être affichées.
  */
 function MoinsDeTreize() {
-
   /*
    * useState
    * --------
@@ -34,7 +34,6 @@ function MoinsDeTreize() {
    */
   useEffect(() => {
     const fetchData = async () => {
-
       // Lecture du fichier JSON
       const res = await fetch("/data/boxes.json");
       const data = await res.json();
@@ -80,7 +79,6 @@ function MoinsDeTreize() {
    */
   return (
     <div className="container mt-5">
-
       {/* Prix total des menus affichés */}
       <h2 className="mb-4">
         Prix total : {data.reduce((total, menu) => total + menu.prix, 0)} €
@@ -89,12 +87,18 @@ function MoinsDeTreize() {
       {/* Liste des menus filtrés */}
       <div className="row g-4 justify-content-center">
         {data.map((menu) => (
-          <div className="col-6 mb-3 d-flex" key={menu.id}>
-            <LargeCard {...menu} />
+          <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
+            {/* SmallCard sur mobile uniquement */}
+            <div className="d-md-none w-100">
+              <SmallCard {...menu} />
+            </div>
+            {/* LargeCard sur desktop uniquement */}
+            <div className="d-none d-md-block w-100">
+              <LargeCard {...menu} />
+            </div>
           </div>
         ))}
       </div>
-
     </div>
   );
 }

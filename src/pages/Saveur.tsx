@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Menu } from '../types/types';
-import LargeCard from '../components/LargeCard';
+import { useState, useEffect } from "react";
+import { Menu } from "../types/types";
+import LargeCard from "../components/LargeCard";
+import SmallCard from "../components/SmallCard";
 
 /*
  * Page Saveur
@@ -9,7 +10,6 @@ import LargeCard from '../components/LargeCard';
  * Elle peut servir de base pour un futur filtrage par saveur si nécessaire.
  */
 function Saveur() {
-
   /*
    * useState
    * --------
@@ -27,8 +27,8 @@ function Saveur() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Récupération du fichier JSON
-      const data = await res.json();              // Conversion JSON → objet JS
-      setData(data);                              // Mise à jour de l'état
+      const data = await res.json(); // Conversion JSON → objet JS
+      setData(data); // Mise à jour de l'état
     };
     fetchData();
   }, []);
@@ -42,9 +42,16 @@ function Saveur() {
   return (
     <div className="container mt-5">
       <div className="row g-4 justify-content-center">
-        {data.map(menu => (
-          <div className="col-6 mb-3 d-flex" key={menu.id}>
-            <LargeCard {...menu} />
+        {data.map((menu) => (
+          <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
+            {/* SmallCard sur mobile uniquement */}
+            <div className="d-md-none w-100">
+              <SmallCard {...menu} />
+            </div>
+            {/* LargeCard sur desktop uniquement */}
+            <div className="d-none d-md-block w-100">
+              <LargeCard {...menu} />
+            </div>
           </div>
         ))}
       </div>

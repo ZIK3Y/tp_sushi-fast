@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu } from '../types/types';
+import { Menu } from "../types/types";
 import SmallCard from "../components/SmallCard";
 
 /*
@@ -9,7 +9,6 @@ import SmallCard from "../components/SmallCard";
  * puis les affiche sous forme de cartes.
  */
 function Home() {
-
   /*
    * useState
    * ------------
@@ -28,8 +27,8 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Lecture du fichier JSON
-      const data = await res.json();              // Conversion en objet JS
-      setData(data);                              // Mise à jour du state
+      const data = await res.json(); // Conversion en objet JS
+      setData(data); // Mise à jour du state
     };
     fetchData();
   }, []);
@@ -46,7 +45,7 @@ function Home() {
         <h1 className="text-center fst-italic">Nos menus</h1>
         <div className="row mt-5">
           {data.map((menu) => (
-            <div className="col-4 mb-5" key={menu.id}>
+            <div className="col-6 col-sm-6 col-md-4 mb-5" key={menu.id}>
               <SmallCard {...menu} />
             </div>
           ))}

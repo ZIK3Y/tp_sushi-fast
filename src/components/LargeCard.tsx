@@ -27,7 +27,7 @@ function LargeCard(props: Menu) {
         {/* Grille Bootstrap pour disposition responsive */}
         <div className="row g-2 h-100">
           {/* Colonne gauche : nom et saveurs */}
-          <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-between">
+          <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-between order-2 order-md-1">
             <div>
               <h4 className="fw-bold">{props.nom}</h4>
               <p className="fs-6 text-secondary fst-italic">
@@ -56,7 +56,7 @@ function LargeCard(props: Menu) {
             </div>
             <div className="text-center text-md-start">
               <p className="fs-5 mb-2">{props.pieces} pièces</p>
-              <div className="d-flex flex-row align-items-center gap-3">
+              <div className="d-flex flex-row align-items-center gap-3 justify-content-center justify-content-md-start">
                 {/* Bouton d'action */}
                 <a href="#" className="btn btn-red">
                   Commander
@@ -67,7 +67,7 @@ function LargeCard(props: Menu) {
           </div>
 
           {/* Colonne droite : image */}
-          <div className="col-md-6 d-flex justify-content-center align-items-center">
+          <div className="col-md-6 d-flex justify-content-center align-items-center order-1 order-md-2 mb-3 mb-md-0">
             <img
               src={`/assets/images/${props.image}.jpg`}
               alt={props.nom}
