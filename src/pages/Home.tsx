@@ -17,7 +17,7 @@ function Home() {
    */
   const [data, setData] = useState<Menu[]>([]);
 
-  /**
+  /*
    * useEffect - Chargement du JSON au montage du composant
    * ------------------------------------------------------
    * - S'exécute une seule fois (tableau de dépendances vide [])
@@ -28,13 +28,13 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Lecture du fichier JSON
-      const data = await res.json();              // Conversion en objet JS
-      setData(data);                              // Mise à jour du state
+      const data = await res.json(); // Conversion en objet JS
+      setData(data); // Mise à jour du state
     };
     fetchData();
   }, []);
 
-  /**
+  /*
    * Rendu du composant
    * -------------------
    * - Affiche une grille bootstrap (3 colonnes par ligne)
@@ -43,8 +43,8 @@ function Home() {
   return (
     <>
       <div className="container">
-        <h1 className="text-center fst-italic">Nos menus</h1>
-        <div className="row mt-5">
+        <h1 className="text-center fst-italic" data-aos="fade-down">Nos menus</h1>
+        <div className="row mt-5" data-aos="fade-up">
           {data.map((menu) => (
             <div className="col-4 mb-5" key={menu.id}>
               <SmallCard {...menu} />

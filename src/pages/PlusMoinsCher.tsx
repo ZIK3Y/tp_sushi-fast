@@ -17,8 +17,8 @@ function PlusMoinsCher() {
     /*
      * useState
      * --------
-     * - moinsCher  : contient le menu avec le plus petit prix
-     * - plusCher   : contient le menu avec le prix le plus élevé
+     * - moinsCher : contient le menu avec le plus petit prix
+     * - plusCher : contient le menu avec le prix le plus élevé
      *
      * Initialisés à `null` pour gérer le cas où les données ne sont
      * pas encore chargées.
@@ -32,13 +32,13 @@ function PlusMoinsCher() {
      * - Appelé une seule fois au montage du composant ([]).
      * - Récupère tous les menus depuis "/data/boxes.json".
      * - Utilise reduce() pour déterminer :
-     *      → l'item ayant le prix minimum
-     *      → l'item ayant le prix maximum
+     *   l'item ayant le prix minimum
+     *   l'item ayant le prix maximum
      */
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch("/data/boxes.json"); // Lecture du fichier JSON
-            const menus: Menu[] = await res.json();      // Conversion
+            const menus: Menu[] = await res.json();      // Conversion en objet JS
 
             /*
              * Détermination du menu le moins cher
@@ -86,8 +86,8 @@ function PlusMoinsCher() {
             {/* Section menu le moins cher */}
             {moinsCher && (
                 <div className="mb-5">
-                    <h2 className="text-center mb-3">Menu le moins cher</h2>
-                    <div className="row justify-content-center">
+                    <h2 className="text-center mb-3" data-aos="fade-down">Menu le moins cher</h2>
+                    <div className="row justify-content-center" data-aos="fade-up">
                         <div className="col-4">
                             <SmallCard {...moinsCher} />
                         </div>
@@ -98,8 +98,8 @@ function PlusMoinsCher() {
             {/* Section menu le plus cher */}
             {plusCher && (
                 <div className="mb-5">
-                    <h2 className="text-center mb-3">Menu le plus cher</h2>
-                    <div className="row justify-content-center">
+                    <h2 className="text-center mb-5" data-aos="fade-down">Menu le plus cher</h2>
+                    <div className="row justify-content-center" data-aos="fade-up">
                         <div className="col-4">
                             <SmallCard {...plusCher} />
                         </div>

@@ -62,8 +62,8 @@ function MoinsDeTreize() {
    * Vérifie si un menu contient strictement moins de 13 pièces.
    *
    * Retourne :
-   *   - true  → si le menu doit être conservé
-   *   - false → sinon
+   *   - true : si le menu doit être conservé
+   *   - false : sinon
    */
   const CheckLessThanThirteen = (menu: Menu): boolean => {
     return menu.pieces < 13;
@@ -73,23 +73,23 @@ function MoinsDeTreize() {
    * Rendu du composant
    * -------------------
    * - Affiche le prix total de tous les menus filtrés.
-   *   → Calculé grâce à reduce().
+   *   Calculé grâce à reduce().
    *
    * - Affiche chaque menu sous forme de LargeCard.
-   *   → Chaque élément est affiché dans une grille responsive Bootstrap.
+   *   Chaque élément est affiché dans une grille responsive Bootstrap.
    */
   return (
-    <div className="container mt-5">
-
+    <div className="container">
+      <h1 className="text-center fst-italic" data-aos="fade-down">Moins de 13€</h1>
       {/* Prix total des menus affichés */}
-      <h2 className="mb-4">
+      <h2 className="my-4" data-aos="fade-down">
         Prix total : {data.reduce((total, menu) => total + menu.prix, 0)} €
       </h2>
 
       {/* Liste des menus filtrés */}
-      <div className="row g-4 justify-content-center">
+      <div className="row g-4 justify-content-center" data-aos="fade-up">
         {data.map((menu) => (
-          <div className="col-6 mb-3 d-flex" key={menu.id}>
+          <div className="col-6 mb-5 d-flex" key={menu.id}>
             <LargeCard {...menu} />
           </div>
         ))}
