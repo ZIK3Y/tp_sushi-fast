@@ -8,7 +8,6 @@ Travaux pratiques réalisé en 3ème année de BUT Métiers du Multimédia et de
 - Vite 7.2.4
 - Bootstrap 5.3.8
 - React Router DOM 7.9.6
-- Vite 7.2.4
 
 ## Installation
 	# Cloner le projet et y accéder
