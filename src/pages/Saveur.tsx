@@ -27,7 +27,7 @@ function Saveur() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Récupération du fichier JSON
-      const data = await res.json(); // Conversion JSON → objet JS
+      const data = await res.json(); // Conversion en objet JS
       setData(data); // Mise à jour de l'état
     };
     fetchData();
@@ -40,8 +40,11 @@ function Saveur() {
    * - Chaque menu utilise une LargeCard pour un affichage détaillé
    */
   return (
-    <div className="container mt-5">
-      <div className="row g-4 justify-content-center">
+    <div className="container">
+      <h1 className="text-center fst-italic" data-aos="fade-down">
+        Nos saveurs
+      </h1>
+      <div className="row mt-4 g-4 justify-content-center" data-aos="fade-up">
         {data.map((menu) => (
           <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
             {/* SmallCard sur mobile uniquement */}

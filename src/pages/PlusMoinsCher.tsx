@@ -13,31 +13,32 @@ import SmallCard from "../components/SmallCard";
  * grâce à reduce() pour identifier les menus extrêmes.
  */
 function PlusMoinsCher() {
-  /*
-   * useState
-   * --------
-   * - moinsCher  : contient le menu avec le plus petit prix
-   * - plusCher   : contient le menu avec le prix le plus élevé
-   *
-   * Initialisés à `null` pour gérer le cas où les données ne sont
-   * pas encore chargées.
-   */
-  const [moinsCher, setMoinsCher] = useState<Menu | null>(null);
-  const [plusCher, setPlusCher] = useState<Menu | null>(null);
 
-  /*
-   * useEffect - Chargement et analyse des menus
-   * -------------------------------------------
-   * - Appelé une seule fois au montage du composant ([]).
-   * - Récupère tous les menus depuis "/data/boxes.json".
-   * - Utilise reduce() pour déterminer :
-   *      → l'item ayant le prix minimum
-   *      → l'item ayant le prix maximum
-   */
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data/boxes.json"); // Lecture du fichier JSON
-      const menus: Menu[] = await res.json(); // Conversion
+    /*
+     * useState
+     * --------
+     * - moinsCher : contient le menu avec le plus petit prix
+     * - plusCher : contient le menu avec le prix le plus élevé
+     *
+     * Initialisés à `null` pour gérer le cas où les données ne sont
+     * pas encore chargées.
+     */
+    const [moinsCher, setMoinsCher] = useState<Menu | null>(null);
+    const [plusCher, setPlusCher] = useState<Menu | null>(null);
+
+    /*
+     * useEffect - Chargement et analyse des menus
+     * -------------------------------------------
+     * - Appelé une seule fois au montage du composant ([]).
+     * - Récupère tous les menus depuis "/data/boxes.json".
+     * - Utilise reduce() pour déterminer :
+     *   l'item ayant le prix minimum
+     *   l'item ayant le prix maximum
+     */
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch("/data/boxes.json"); // Lecture du fichier JSON
+            const menus: Menu[] = await res.json();      // Conversion en objet JS
 
       /*
        * Détermination du menu le moins cher
@@ -84,8 +85,8 @@ function PlusMoinsCher() {
       {/* Section menu le moins cher */}
       {moinsCher && (
         <div className="mb-5">
-          <h2 className="text-center mb-3">Menu le moins cher</h2>
-          <div className="row justify-content-center">
+          <h2 className="text-center mb-3" data-aos="fade-down">Menu le moins cher</h2>
+          <div className="row justify-content-center" data-aos="fade-up">
             <div className="col-6 col-sm-6 col-md-4">
               <SmallCard {...moinsCher} />
             </div>
@@ -96,8 +97,8 @@ function PlusMoinsCher() {
       {/* Section menu le plus cher */}
       {plusCher && (
         <div className="mb-5">
-          <h2 className="text-center mb-3">Menu le plus cher</h2>
-          <div className="row justify-content-center">
+          <h2 className="text-center mb-5" data-aos="fade-down">Menu le plus cher</h2>
+          <div className="row justify-content-center" data-aos="fade-up">
             <div className="col-6 col-sm-6 col-md-4">
               <SmallCard {...plusCher} />
             </div>

@@ -31,7 +31,7 @@ function CaliforniaSaumonAvocat() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data/boxes.json"); // Lecture du JSON
-      const data: Menu[] = await res.json(); // Conversion
+      const data: Menu[] = await res.json(); // Conversion en objet JS
 
       let filteredData: Menu[] = [];
 
@@ -57,8 +57,8 @@ function CaliforniaSaumonAvocat() {
    * CheckCSA
    * --------
    * Fonction booléenne qui renvoie :
-   *   - false → si l'aliment "California Saumon Avocat" est présent
-   *   - true  → sinon
+   *   - false : si l'aliment "California Saumon Avocat" est présent
+   *   - true : sinon
    *
    * Aliment utilisé pour exclure certains menus.
    */
@@ -78,8 +78,9 @@ function CaliforniaSaumonAvocat() {
    * - Chaque entrée est passée à <LargeCard />.
    */
   return (
-    <div className="container mt-5">
-      <div className="row g-4 justify-content-center">
+    <div className="container">
+      <h1 className="text-center fst-italic" data-aos="fade-down">California Saumon Avocat</h1>
+      <div className="row mt-4 g-4 justify-content-center" data-aos="fade-up">
         {data.map((menu) => (
           <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
             {/* SmallCard sur mobile uniquement */}

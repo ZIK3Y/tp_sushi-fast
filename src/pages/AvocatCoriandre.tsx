@@ -62,8 +62,11 @@ function AvocatCoriandre() {
    * - Chaque menu est envoyé au composposant LargeCard via "...menu"
    */
   return (
-    <div className="container mt-5">
-      <div className="row g-4 justify-content-center">
+    <div className="container">
+      <h1 className="text-center fst-italic" data-aos="fade-down">
+        Avocat Coriandre
+      </h1>
+      <div className="row mt-4 g-4 justify-content-center" data-aos="fade-up">
         {data.map((menu) => (
           <div className="col-6 col-md-6 mb-3 d-flex" key={menu.id}>
             {/* SmallCard sur mobile uniquement */}
